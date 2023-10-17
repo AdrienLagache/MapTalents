@@ -1,0 +1,344 @@
+// Récupération des variables
+@use '../../styles/variables' as v;
+
+.back {
+  display: flex;
+  position: absolute;
+  z-index: 99;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  background-color: v.$grey-color-100;
+  padding: 0 calc((100vw - 1000px) / 2);
+
+  &-link {
+    display: flex;
+    gap: 20px;
+    text-decoration: none;
+    color: v.$grey-color-500;
+    font-weight: 700;
+    span {
+      transform: translateX(0px);
+      transition: 0.3s;
+    }
+
+    &:hover {
+      span {
+        transform: translateX(-5px);
+      }
+    }
+  }
+}
+
+.Detail {
+  position: absolute;
+  top: 60px;
+  display: flex;
+  width: 100%;
+  padding: 40px calc((100vw - 1050px) / 2);
+
+  &-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: v.$grey-color-500;
+    margin-bottom: 2.5rem;
+    position: relative;
+    width: fit-content;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: 2px;
+      background-color: v.$gold-color-500;
+      height: 2px;
+    }
+
+    &::before {
+      right: -50px;
+      width: 40px;
+    }
+    &::after {
+      right: -60px;
+      width: 5px;
+    }
+  }
+
+  &-information {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1rem;
+  }
+
+  &-profile {
+    width: 300px;
+    position: relative;
+
+    .draw1 {
+      position: absolute;
+      top: -30px;
+      left: -100px;
+      width: 250px;
+      height: 350px;
+    }
+
+    &-picture img {
+      position: relative;
+      width: 70%;
+      margin-left: 15%;
+      border-radius: 25%;
+      margin-bottom: 20px;
+    }
+
+    &-secondary {
+      padding: 40px 20px 20px;
+    }
+
+    &-category {
+      max-width: 100%;
+
+      a {
+        text-decoration: none;
+        color: v.$grey-color-500;
+      }
+
+      &-dev {
+        width: 100%;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transform: translateX(0);
+        transition: 0.3s;
+        position: relative;
+
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 75%;
+          height: 4px;
+          right: 0;
+          bottom: -4px;
+          background-color: transparent;
+          transition: 0.3s;
+          border-radius: 5px;
+        }
+
+        &:hover {
+          transform: translateX(5px);
+        }
+
+        &:hover::after {
+          background-color: v.$gold-color-500;
+        }
+      }
+
+      &-picture img {
+        border-radius: 50%;
+        width: 50px;
+      }
+
+      &-info {
+        p:first-child {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &-main {
+    width: 700px;
+    padding-left: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: relative;
+
+    .draw2 {
+      position: absolute;
+      top: -60px;
+      right: -100px;
+      width: 380px;
+      height: 300px;
+      transform: rotateZ(10deg);
+    }
+
+    .draw3 {
+      position: absolute;
+      top: 680px;
+      left: -200px;
+      width: 600px;
+      height: 40px;
+      transform: rotateZ(90deg);
+    }
+
+    &-name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: v.$grey-color-500;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    &-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: v.$grey-color-500;
+      position: relative;
+      margin-bottom: 80px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: 3px;
+        background-color: v.$gold-color-500;
+        height: 3px;
+        border-radius: 5px;
+      }
+
+      &::before {
+        left: -62px;
+        width: 50px;
+      }
+      &::after {
+        left: -76px;
+        width: 6px;
+      }
+    }
+
+    &-experience-tjm {
+      display: flex;
+      justify-content: space-between;
+      width: 380px;
+
+      .experience,
+      .tjm {
+        position: relative;
+        padding: 12px 30px 12px 20px;
+        margin-bottom: 30px;
+
+        h3 {
+          font-size: 0.75rem;
+          margin-bottom: 0.5rem;
+          font-weight: 500;
+        }
+
+        &::before,
+        &::after {
+          position: absolute;
+          content: '';
+          bottom: -0px;
+          background-color: v.$gold-color-500;
+          height: 3px;
+          border-radius: 5px;
+        }
+      }
+
+      .experience {
+        p {
+          font-weight: 500;
+          font-size: 1.25rem;
+        }
+
+        &::before {
+          left: 0px;
+          width: 20px;
+        }
+      }
+
+      .tjm {
+        background-color: v.$gold-color-500;
+        border-radius: 8px 8px 8px 0;
+
+        span {
+          font-weight: 500;
+          font-size: 1.25rem;
+        }
+
+        &::after {
+          right: 10px;
+          width: 340px;
+        }
+      }
+    }
+
+    &-contact {
+      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: 10px;
+      margin-bottom: 40px;
+
+      p {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      button {
+        background-color: v.$gold-color-500;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+
+    &-description,
+    &-skills {
+      width: 100%;
+      padding: 40px 0 20px;
+
+      p {
+        margin-bottom: 1rem;
+      }
+    }
+
+    &-description {
+      line-height: 1.2rem;
+    }
+
+    &-skills {
+      &-title {
+        font-weight: 600;
+        position: relative;
+        width: 100%;
+        color: v.$grey-color-500;
+        margin-bottom: 2rem;
+
+        &::after {
+          position: absolute;
+          content: '';
+          width: calc(100% - 80px);
+          height: 1px;
+          right: 0px;
+          bottom: 3px;
+          background-color: v.$gold-color-500;
+        }
+      }
+
+      &-list {
+        margin-bottom: 3rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      &-item {
+        padding: 0.5rem 1rem;
+        background-color: v.$grey-color-100;
+        width: fit-content;
+        border-radius: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+// Récupération des variables
+@use '../../styles/variables' as v;
+
+.unauthorized {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+
+  p:first-child {
+    font-size: 4rem;
+  }
+
+  a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 4rem;
+    border-radius: 5px;
+    color: v.$white-color-100;
+    font-size: 1.5rem;
+    background-color: v.$grey-color-500;
+  }
+}

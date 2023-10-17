@@ -1,0 +1,27 @@
+@use '../../styles/variables' as v;
+
+.NoData {
+  width: 100%;
+  height: calc(100% - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-container {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    line-height: 1.5rem;
+    font-size: 1.25rem;
+    gap: 1rem;
+
+    p {
+      font-weight: 500;
+    }
+  }
+
+  &-image {
+    width: 400px;
+  }
+}

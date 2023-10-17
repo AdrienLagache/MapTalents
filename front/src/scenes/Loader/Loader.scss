@@ -1,0 +1,89 @@
+// Récupération des variables
+@use '../../styles/variables' as v;
+
+.loader {
+  width: 100%;
+  height: calc(100% - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  .loader_container {
+    position: relative;
+    width: fit-content;
+
+    .map {
+      height: 120px;
+      width: 120px;
+      color: white;
+      animation: map infinite 0.5s alternate;
+
+      @keyframes map {
+        0% {
+          transform: rotateZ(-5deg);
+        }
+
+        100% {
+          transform: rotateZ(5deg);
+        }
+      }
+    }
+
+    .pins {
+      height: 60px;
+      width: 60px;
+      color: white;
+      position: absolute;
+
+      &:nth-of-type(2) {
+        bottom: 25px;
+        left: -60px;
+        transform: rotateZ(-45deg);
+        animation: pin1 infinite 0.5s alternate;
+
+        @keyframes pin1 {
+          0% {
+            bottom: 25px;
+            left: -60px;
+            transform: rotateZ(-45deg);
+          }
+
+          100% {
+            bottom: 35px;
+            left: -70px;
+            transform: rotateZ(-35deg);
+          }
+        }
+      }
+
+      &:nth-of-type(3) {
+        top: 0;
+        right: -60px;
+        transform: rotateZ(45deg);
+        animation: pin2 infinite 0.5s alternate;
+
+        @keyframes pin2 {
+          0% {
+            top: 0;
+            right: -60px;
+            transform: rotateZ(45deg);
+          }
+
+          100% {
+            top: -15px;
+            right: -70px;
+            transform: rotateZ(40deg);
+          }
+        }
+      }
+    }
+  }
+
+  p {
+    width: fit-content;
+    color: v.$grey-color-700;
+    font-weight: 700;
+  }
+}

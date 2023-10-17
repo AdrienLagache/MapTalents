@@ -1,0 +1,27 @@
+// Récupération des variables
+@use '../../styles/variables' as v;
+
+.MarkerDev {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border: 2px solid v.$grey-color-300;
+  padding: 4px;
+  border-radius: 50% 50% 0 50%;
+  overflow: hidden;
+  transform: rotateZ(45deg);
+  cursor: pointer;
+  transition: 0.3s;
+
+  picture {
+    img {
+      max-width: 100%;
+      border-radius: 50%;
+      transform: rotateZ(-45deg);
+    }
+  }
+
+  &:hover {
+    scale: 1.15;
+  }
+}

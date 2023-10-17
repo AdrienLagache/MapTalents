@@ -1,0 +1,55 @@
+// Récupération des variables
+@use '../../styles/variables' as v;
+
+.TogglePages {
+  width: 100%;
+  height: v.$height-togglepages;
+  display: flex;
+  gap: 15px;
+  padding: 15px 5%;
+  background-color: v.$grey-color-100;
+
+  &-switch-button {
+    height: 100%;
+    width: 100%;
+    background-color: v.$grey-color-500;
+    border-radius: 5px;
+    color: v.$white-color-100;
+    text-decoration: none;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-weight: 500;
+    transition: 0.2s;
+
+    &:hover {
+      color: v.$grey-color-700;
+      background-color: v.$gold-color-500;
+
+      .icons {
+        animation: hoverIcons 0.3s 2 ease-in-out;
+      }
+    }
+
+    &.active {
+      color: v.$grey-color-700;
+      background-color: v.$gold-color-500;
+    }
+  }
+}
+
+@keyframes hoverIcons {
+  0%,
+  50%,
+  100% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(18deg);
+  }
+  75% {
+    transform: rotateZ(-18deg);
+  }
+}

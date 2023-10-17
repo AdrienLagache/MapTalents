@@ -1,0 +1,373 @@
+// Récupération des variables
+@use '../../styles/variables' as v;
+
+.Filter {
+  position: fixed;
+  z-index: 5;
+  top: 150px;
+  left: 0;
+  width: 100%;
+  min-width: 100%;
+  height: calc(100vh - 80px);
+  background-color: v.$white-color-300;
+  padding-bottom: 70px;
+
+  &.open {
+    height: 40px;
+    padding: 0;
+  }
+
+  &-button {
+    width: 100%;
+    height: 40px;
+    background-color: v.$gold-color-500;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    transition: 0.3s;
+    p {
+      transform: translateX(0.5rem);
+      transition: 0.3s;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      color: transparent;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      gap: 10px;
+      p {
+        transform: translateX(0);
+      }
+      span {
+        color: black;
+      }
+    }
+  }
+
+  &-menu {
+    padding: 20px 40px;
+    height: 100%;
+    overflow: auto;
+
+    &-header {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .header-title {
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+
+      .header-close-button {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 0.5rem 0;
+        position: relative;
+        overflow: hidden;
+        font-weight: 600;
+        color: v.$grey-color-500;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 2px;
+          background-color: v.$gold-color-500;
+          position: absolute;
+          bottom: 2px;
+          left: 0;
+          transform: translateX(-95%);
+          transition: 0.3s;
+        }
+
+        &:hover::after {
+          transform: translateX(0);
+        }
+      }
+    }
+
+    &-title {
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      width: fit-content;
+      position: relative;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: 2px;
+        background-color: v.$gold-color-500;
+        height: 2px;
+      }
+
+      &::before {
+        right: -50px;
+        width: 40px;
+      }
+      &::after {
+        right: -60px;
+        width: 5px;
+      }
+    }
+
+    &-fieldset {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2.5rem;
+
+      &.fieldset-adress {
+        input[type='text']:focus-visible {
+          outline: none;
+        }
+      }
+
+      &.fieldset-adress,
+      &.fieldset-technos,
+      &.fieldset-remote {
+        position: relative;
+
+        input[type='text'],
+        select {
+          width: 90%;
+          margin: 0 auto;
+          padding: 0.5rem 1rem 0.5rem;
+          border-radius: 5px;
+          border: 1px solid v.$grey-color-300;
+          font-size: 0.8rem;
+        }
+
+        .fieldset-technos-selected {
+          width: 90%;
+          margin: 0 auto;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          padding-top: 1rem;
+
+          .techno-tag {
+            width: fit-content;
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: v.$grey-color-100;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+
+            &:hover,
+            &:hover span {
+              background-color: v.$delete-color;
+              color: white;
+            }
+
+            img {
+              height: 0.8rem;
+            }
+
+            .delete-button {
+              height: 100%;
+              border: none;
+              padding: 0;
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              background-color: v.$grey-color-100;
+              transition: 0.2s;
+            }
+          }
+        }
+
+        .autocomplete-address {
+          position: absolute;
+          width: 90%;
+          left: 5%;
+          top: 58px;
+          font-size: 0.8rem;
+          display: flex;
+          flex-direction: column;
+          z-index: 200;
+          border: 1px solid v.$grey-color-300;
+          border-radius: 0 0 5px 5px;
+          overflow: hidden;
+
+          li {
+            cursor: pointer;
+            padding: 0.5rem 1rem 0.5rem;
+            background-color: white;
+            transition: 0.3s;
+
+            &:hover,
+            &:focus {
+              background-color: v.$gold-color-300;
+              outline: none;
+            }
+          }
+        }
+      }
+
+      &.fieldset-tjm {
+        p + span {
+          color: v.$grey-color-500;
+          margin: 0 auto;
+          width: 90%;
+        }
+
+        .fieldset-tjm-info {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.8rem;
+        }
+
+        // MUI Slider
+        .MuiSlider-thumb {
+          border: 2px solid #4d4d4d;
+          width: 18px;
+          height: 18px;
+          background-color: white;
+          transition: 0.3s;
+          box-shadow: 0 0 0 0 white;
+
+          &:active {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+
+      &.fieldset-experience,
+      &.fieldset-category,
+      &.fieldset-language,
+      &.fieldset-availability {
+        display: flex;
+        flex-direction: column;
+
+        .fieldset-experience-checkbox,
+        .fieldset-category-checkbox,
+        .fieldset-language-checkbox,
+        .fieldset-availability-checkbox {
+          width: 90%;
+          margin: 0 auto;
+          height: 1.5rem;
+
+          label {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+          }
+
+          &:not(:last-child) {
+            margin-bottom: 0.5rem;
+          }
+
+          label,
+          input {
+            cursor: pointer;
+          }
+
+          input[type='checkbox'] {
+            width: 0.9rem;
+            height: 0.9rem;
+            overflow: hidden;
+            position: relative;
+          }
+          input[type='checkbox']:checked::after {
+            width: 0.9rem;
+            height: 0.9rem;
+            content: '';
+            position: absolute;
+            border-radius: 2px;
+            background-color: v.$grey-color-500;
+          }
+          input[type='checkbox']:checked::before {
+            width: 0.9rem;
+            height: 0.9rem;
+            content: '';
+            position: absolute;
+            z-index: 100;
+            background-image: url(../../assets/check.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 85%;
+            fill: white;
+          }
+        }
+
+        .see-more {
+          width: 90%;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 0.9rem;
+          gap: 0rem;
+          cursor: pointer;
+          padding: 0.5rem 0;
+          transition: 0.3s;
+          border: none;
+          border-bottom: 1px solid v.$gold-color-500;
+          padding-left: 16px;
+          background: none;
+
+          p {
+            padding-top: 1px;
+            font-weight: 500;
+          }
+
+          span {
+            color: transparent;
+            transition: 0.3s;
+          }
+
+          &:hover {
+            gap: 1rem;
+            padding-left: 0px;
+
+            span {
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Filter {
+    position: relative;
+    width: 400px;
+    min-width: 400px;
+    top: 0;
+
+    &-toggle {
+      height: 70px;
+      background-color: v.$grey-color-100;
+      padding-bottom: 0;
+    }
+
+    &-menu {
+      &-fieldset {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

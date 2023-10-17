@@ -1,0 +1,155 @@
+// Récupération des variables
+@use '../../styles/variables' as v;
+
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+
+  &-container {
+    width: 400px;
+
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-bottom: 1.5rem;
+
+      label {
+        color: v.$grey-color-700;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        transition: 0.3s;
+      }
+
+      input {
+        padding: 0.5rem 1rem 0.5rem 3rem;
+        border-radius: 5px;
+        border: 1px solid #747474;
+        font-size: 1rem;
+        outline: none;
+        height: 40px;
+
+        &[type='password'] {
+          letter-spacing: 0.25rem;
+          &::placeholder {
+            letter-spacing: 0rem;
+          }
+        }
+      }
+
+      span {
+        color: v.$grey-color-500;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 12px;
+        left: 1rem;
+      }
+
+      &:focus-within {
+        label {
+          transform: translateX(0.5rem);
+        }
+      }
+    }
+  }
+
+  &-title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: v.$grey-color-700;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  &-submit-button {
+    margin: 2rem 0 1rem;
+    width: 100%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: v.$gold-color-500;
+    border: 1px solid v.$grey-color-500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    p {
+      font-size: 1rem;
+      transform: translateX(calc(0.5rem + 10px));
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    span {
+      display: flex;
+      align-items: center;
+      color: transparent;
+      transition: 0.1s;
+    }
+
+    &:hover {
+      p {
+        transform: translateX(0rem);
+      }
+      span {
+        color: black;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  &-link-signin {
+    color: v.$grey-color-500;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 15px;
+
+    a {
+      text-decoration: none;
+      color: v.$grey-color-500;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 2px;
+        background-color: v.$gold-color-500;
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        transition: 0.3s;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Login {
+    &-title {
+      &::after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 150px;
+        bottom: 6px;
+        right: 0px;
+        position: absolute;
+        background-color: v.$gold-color-500;
+      }
+    }
+  }
+}

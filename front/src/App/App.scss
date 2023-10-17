@@ -1,0 +1,32 @@
+// Récupération des variables
+@use '../styles/variables' as v;
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+
+  &-container-bottom {
+    min-height: calc(100vh - v.$height-navbar);
+    background-color: v.$white-color-300;
+    display: flex;
+    position: relative;
+  }
+
+  &-container-right {
+    width: 100%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.75rem;
+  background-color: v.$gold-color-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: v.$gold-color-300;
+  min-height: 10rem;
+  border-radius: 2px;
+  &:hover {
+    background-color: v.$gold-color-500;
+  }
+}

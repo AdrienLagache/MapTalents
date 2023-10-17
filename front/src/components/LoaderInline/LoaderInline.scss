@@ -1,0 +1,37 @@
+// Récupération des variables
+@use '../../styles/variables' as v;
+
+.LoaderInline {
+  height: 1rem;
+  width: 90%;
+  margin: 0 auto 0.5rem;
+  background-color: v.$gold-color-300;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: v.$width-loaderinline;
+    height: 100%;
+    top: 0;
+    left: -#{v.$width-loaderinline};
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: colorSlider 2s infinite 1s;
+  }
+}
+
+@keyframes colorSlider {
+  0% {
+    left: -#{v.$width-loaderinline};
+  }
+  100% {
+    left: calc(100% + v.$width-loaderinline);
+  }
+}
