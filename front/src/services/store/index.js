@@ -19,9 +19,9 @@ import signupReducer from '../reducers/signupReducer';
 import backOfficeReducer from '../reducers/backOfficeReducer';
 import authReducer from '../reducers/authReducer';
 import accountReducer from '../reducers/accountReducer';
-import saveStateMiddleware, {
-  loadStateFromLocalStorage,
-} from '../middlewares/saveStateMiddleware';
+// import saveStateMiddleware, {
+//   loadStateFromLocalStorage,
+// } from '../middlewares/saveStateMiddleware';
 
 // Combiner les middlewares
 const middlewareEnhancer = applyMiddleware(
@@ -31,7 +31,7 @@ const middlewareEnhancer = applyMiddleware(
   authMiddleware,
   backofficeMiddleware,
   accountMiddleware,
-  saveStateMiddleware
+  // saveStateMiddleware
 );
 const enhancer = composeWithDevTools(middlewareEnhancer);
 
@@ -46,8 +46,8 @@ const reducer = combineReducers({
   account: accountReducer,
 });
 
-const initialState = loadStateFromLocalStorage();
+// const initialState = loadStateFromLocalStorage();
 
-const store = createStore(reducer, initialState, enhancer);
+const store = createStore(reducer, enhancer);
 
 export default store;

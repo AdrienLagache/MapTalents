@@ -104,7 +104,7 @@ const Account = () => {
   useEffect(() => {
     dispatch(fetchDataFilter());
     dispatch(fetchDataSignup());
-    dispatch(fetchAccountUser(userId)); // TODO : gérer id dynamique avec slug
+    dispatch(fetchAccountUser(userId));
 
     // Vérifie si la personne connectée est bien la personne du compte
     // // TODO: Supprimer ce commentaire pour accéder de nouveau à la vérification du user

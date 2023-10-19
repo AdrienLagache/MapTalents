@@ -33,6 +33,11 @@ const authMiddleware = (store) => (next) => (action) => {
             )
           );
           localStorage.setItem('token', response.data.access_token);
+          localStorage.setItem('payload', [
+            response.data.payload.user.name,
+            response.data.payload.user.role,
+            response.data.payload.user.id
+          ])
         })
         .catch((error) => {
           console.log(error);
