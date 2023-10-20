@@ -6,8 +6,9 @@
   height: v.$height-togglepages;
   display: flex;
   gap: 15px;
-  padding: 15px 5%;
+  padding: 12px 5%;
   background-color: v.$grey-color-100;
+  border-bottom: 1px v.$gold-color-300 solid;
 
   &-switch-button {
     height: 100%;
